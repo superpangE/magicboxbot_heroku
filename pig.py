@@ -206,7 +206,7 @@ def play(client):
             await message.channel.send(embed=embed)
 
         #명령어 확인
-        if message.content == '!명령어' or message.content == '!!':
+        if message.content == '!명령어' or message.content == '!도움' or message.content == '!도움말' or message.content == '!help' or message.content == '!commands':
 
             embed = discord.Embed(color = discord.Color.blue())
             embed.set_author(name = "마법의 소라고동 v3.0 메뉴얼")
