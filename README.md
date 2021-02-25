@@ -11,7 +11,7 @@
 
 2021-02-01 ~ 2021-02-23
 
-## 기술 스택
+## 기술 스택 ⛏
 ![](https://img.shields.io/badge/python-v3.8.5-red)
 ![](https://img.shields.io/badge/bot-Discord-blue?style=flat-square)
 
