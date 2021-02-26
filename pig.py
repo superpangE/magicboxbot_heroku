@@ -100,78 +100,81 @@ def play(client):
 
                     #백준 홈페이지의 solvedac-tier 클래스를 가진 img의 src 정보를 가져옴
                     levelcheck = bsObject.find("img", {"class": "solvedac-tier"})
-                    check_src = levelcheck["src"]
+                    if levelcheck is None:
+                        await message.channel.send("solved.ac에 백준 아이디를 등록해주세요")
+                    else:
+                        check_src = levelcheck["src"]
 
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/1.svg":
-                        level = "bronze5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/2.svg":
-                        level = "bronze4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/3.svg":
-                        level = "bronze3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/4.svg":
-                        level = "bronze2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/5.svg":
-                        level = "bronze1"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/6.svg":
-                        level = "silver5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/7.svg":
-                        level = "silver4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/8.svg":
-                        level = "silver3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/9.svg":
-                        level = "silver2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/10.svg":
-                        level = "silver1"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/11.svg":
-                        level = "gold5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/12.svg":
-                        level = "gold4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/13.svg":
-                        level = "gold3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/14.svg":
-                        level = "gold2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/15.svg":
-                        level = "gold1"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/16.svg":
-                        level = "platinum5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/17.svg":
-                        level = "platinum4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/18.svg":
-                        level = "platinum3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/19.svg":
-                        level = "platinum2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/20.svg":
-                        level = "platinum1"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/21.svg":
-                        level = "diamond5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/22.svg":
-                        level = "diamond4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/23.svg":
-                        level = "diamond3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/24.svg":
-                        level = "diamond2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/25.svg":
-                        level = "diamond1"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/26.svg":
-                        level = "ruby5"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/27.svg":
-                        level = "ruby4"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/28.svg":
-                        level = "ruby3"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/29.svg":
-                        level = "ruby2"
-                    if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/30.svg":
-                        level = "ruby1"
-                    
-                    #tierimage.py에서 level에 맞는 이미지 가져오기
-                    url1 = tierimage.tier(level)
-                    #티어값 출력
-                    embed = discord.Embed(color=discord.Color.blue())
-                    embed.set_author(name=plus + "님의 티어는?")
-                    embed.set_thumbnail(url=url1)
-                    embed.add_field(
-                        name=level, value="소라고동이 인증합니다🙂", inline=False)
-                    await message.channel.send(embed=embed)
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/1.svg":
+                            level = "bronze5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/2.svg":
+                            level = "bronze4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/3.svg":
+                            level = "bronze3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/4.svg":
+                            level = "bronze2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/5.svg":
+                            level = "bronze1"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/6.svg":
+                            level = "silver5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/7.svg":
+                            level = "silver4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/8.svg":
+                            level = "silver3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/9.svg":
+                            level = "silver2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/10.svg":
+                            level = "silver1"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/11.svg":
+                            level = "gold5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/12.svg":
+                            level = "gold4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/13.svg":
+                            level = "gold3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/14.svg":
+                            level = "gold2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/15.svg":
+                            level = "gold1"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/16.svg":
+                            level = "platinum5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/17.svg":
+                            level = "platinum4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/18.svg":
+                            level = "platinum3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/19.svg":
+                            level = "platinum2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/20.svg":
+                            level = "platinum1"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/21.svg":
+                            level = "diamond5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/22.svg":
+                            level = "diamond4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/23.svg":
+                            level = "diamond3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/24.svg":
+                            level = "diamond2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/25.svg":
+                            level = "diamond1"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/26.svg":
+                            level = "ruby5"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/27.svg":
+                            level = "ruby4"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/28.svg":
+                            level = "ruby3"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/29.svg":
+                            level = "ruby2"
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/30.svg":
+                            level = "ruby1"
+                        
+                        #tierimage.py에서 level에 맞는 이미지 가져오기
+                        url1 = tierimage.tier(level)
+                        #티어값 출력
+                        embed = discord.Embed(color=discord.Color.blue())
+                        embed.set_author(name=plus + "님의 티어는?")
+                        embed.set_thumbnail(url=url1)
+                        embed.add_field(
+                            name=level, value="소라고동이 인증합니다🙂", inline=False)
+                        await message.channel.send(embed=embed)
 
                     #403, 502, 504 에러
                 except HTTPError as e:
