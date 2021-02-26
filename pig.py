@@ -68,20 +68,15 @@ def play(client):
                     newdate = dateObject.find_all("div", {"class": "evt-time"})[1]
 
                     clockdata = newdate.text
-                    
+                    #heroku가 미국 서버라 한국에서 약간의 코드 변경
                     clock = clockdata.split(' ')[0]
                     clocktemp = int(clock.split(':')[0]) + 1
                     clockhour = str(clocktemp)
                     clockminutemp = clock.split(':')[1]
-                    print(clockminutemp)
                     clockminu = clockminutemp[0:3]
-                    #clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
-                    #clock = " " + str(clockdata.split('.')[0])
                     resclock = "오후 " + clockhour + ":" + clockminu
                     realdate = str(date.split(' ')[0]) + " " + resclock
-                    print(clockminu)
-                    print(resclock)
-
+                    
                     embed = discord.Embed(color = discord.Color.blue())
                     embed.set_author(name = probname)
                     embed.add_field(name = "시간제한 : " + time, value = realdate, inline=False)
