@@ -68,9 +68,11 @@ def play(client):
                     newdate = dateObject.find_all("div", {"class": "evt-time"})[1]
 
                     clockdata = newdate.text
+                    print(clockdata)
                     #clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
-                    clock = str(clockdata.split('.')[1]) + " " + str(clockdata.split('.')[0])
+                    clock = " " + str(clockdata.split('.')[0])
                     realdate = str(date.split(' ')[0]) + " " + clock
+                    
 
                     embed = discord.Embed(color = discord.Color.blue())
                     embed.set_author(name = probname)
