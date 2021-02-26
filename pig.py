@@ -68,10 +68,15 @@ def play(client):
                     newdate = dateObject.find_all("div", {"class": "evt-time"})[1]
 
                     clockdata = newdate.text
-                    clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
-
-                    realdate = str(date.split(' ')[0]) + " " + clock
-
+                    #heroku가 미국 서버라 한국에서 약간의 코드 변경
+                    clock = clockdata.split(' ')[0]
+                    clocktemp = int(clock.split(':')[0]) + 1
+                    clockhour = str(clocktemp)
+                    clockminutemp = clock.split(':')[1]
+                    clockminu = clockminutemp[0:3]
+                    resclock = "오후 " + clockhour + ":" + clockminu
+                    realdate = str(date.split(' ')[0]) + " " + resclock
+                    
                     embed = discord.Embed(color = discord.Color.blue())
                     embed.set_author(name = probname)
                     embed.add_field(name = "시간제한 : " + time, value = realdate, inline=False)
@@ -209,7 +214,7 @@ def play(client):
             await message.channel.send(embed=embed)
 
         #명령어 확인
-        if message.content == '!명령어' or message.content == '!!':
+        if message.content == '!명령어' or message.content == '!도움' or message.content == '!도움말' or message.content == '!help' or message.content == '!commands':
 
             embed = discord.Embed(color = discord.Color.blue())
             embed.set_author(name = "마법의 소라고동 v3.0 메뉴얼")

@@ -11,14 +11,15 @@
 
 2021-02-01 ~ 2021-02-23
 
-## 기술 스택
+## 기술 스택 ⛏
 ![](https://img.shields.io/badge/python-v3.8.5-red)
 ![](https://img.shields.io/badge/bot-Discord-blue?style=flat-square)
 
 ## 배포 🍁
 
-곧 배포 예정!!
-
+https://koreanbots.dev/bots/678613524318126130
+<br>
+![](https://i.imgur.com/h4Um2yJ.png)
 ## Bot 동작 예시 🌻
 
 <div>
