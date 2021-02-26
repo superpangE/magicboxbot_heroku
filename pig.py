@@ -75,7 +75,7 @@ def play(client):
                     clockminu = clock.split(':')[1]
                     #clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
                     #clock = " " + str(clockdata.split('.')[0])
-                    resclock = "오후 " + clockhour+1 + ":" + clockminu
+                    resclock = "오후 " + clockhour + ":" + clockminu
                     realdate = str(date.split(' ')[0]) + " " + resclock
                     
 
