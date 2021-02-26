@@ -73,11 +73,14 @@ def play(client):
                     clocktemp = int(clock.split(':')[0]) + 1
                     clockhour = str(clocktemp)
                     clockminutemp = clock.split(':')[1]
+                    print(clockminutemp)
                     clockminu = clockminutemp.split(' ')[0]
                     #clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
                     #clock = " " + str(clockdata.split('.')[0])
                     resclock = "오후 " + clockhour + ":" + clockminu
                     realdate = str(date.split(' ')[0]) + " " + resclock
+                    print(clockminu)
+                    print(resclock)
 
                     embed = discord.Embed(color = discord.Color.blue())
                     embed.set_author(name = probname)
