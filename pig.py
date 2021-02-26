@@ -68,10 +68,15 @@ def play(client):
                     newdate = dateObject.find_all("div", {"class": "evt-time"})[1]
 
                     clockdata = newdate.text
-                    print(clockdata)
+                    
+                    clock = clockdata.split(' ')[0]
+                    clockhour = clock.split(':')[0]
+                    clockminu = clock.split(':')[1]
+                    print(clockhour + 1)
                     #clock = str(clockdata.split('.')[1])[0:3] + " " + str(clockdata.split('.')[0])
-                    clock = " " + str(clockdata.split('.')[0])
-                    realdate = str(date.split(' ')[0]) + " " + clock
+                    #clock = " " + str(clockdata.split('.')[0])
+                    resclock = "오후 " + clockhour+1 + ":" + clockminu
+                    realdate = str(date.split(' ')[0]) + " " + resclock
                     
 
                     embed = discord.Embed(color = discord.Color.blue())
