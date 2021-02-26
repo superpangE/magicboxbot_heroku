@@ -18,7 +18,8 @@
 ## 배포 🍁
 
 https://koreanbots.dev/bots/678613524318126130
-
+<br>
+![](https://i.imgur.com/h4Um2yJ.png)
 ## Bot 동작 예시 🌻
 
 <div>
