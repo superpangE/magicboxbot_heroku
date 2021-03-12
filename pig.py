@@ -109,7 +109,8 @@ def play(client):
                         await message.channel.send("solved.ac에 백준 아이디를 등록해주세요")
                     else:
                         check_src = levelcheck["src"]
-
+                        if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/-1.svg":
+                            level = "unranked"  
                         if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/1.svg":
                             level = "bronze5"
                         if check_src == "https://d2gd6pc034wcta.cloudfront.net/tier/2.svg":
@@ -184,7 +185,7 @@ def play(client):
                     #403, 502, 504 에러
                 except HTTPError as e:
                     if e.code == 502 or 504:
-                        await message.channel.send("사용자문제 :)")
+                        await message.channel.send("ID를 확인해주세요")
                     if e.code == 403:
                         await message.channel.send("조금 기다렸다 시도해주새오")
 
