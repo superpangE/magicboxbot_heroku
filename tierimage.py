@@ -1,5 +1,8 @@
 import os
 def tier(level):
+    if(level == "unranked"):
+        res=os.environ['unranked']
+
     if(level == "bronze5"):
         res=os.environ['bronze5']
     if(level == "bronze4"):
