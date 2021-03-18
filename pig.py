@@ -108,7 +108,7 @@ def play(client):
                 await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
                 return
 
-            channel = message.author.voice.voice_channel 
+            channel = message.author.voice.channel 
             server = message.server
             voice_client = client.voice_client_in(server)
 
