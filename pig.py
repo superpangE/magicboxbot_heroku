@@ -109,7 +109,7 @@ def play(client):
                 return
 
             channel = message.author.voice.channel 
-            server = message.server
+            server = message.guild
             voice_client = client.voice_client_in(server)
 
             if client.is_voice_connected(server) and not playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있으나 음악을 재생하지 않을 때
