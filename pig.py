@@ -10,6 +10,19 @@ def play(client):
     import urllib.request
     from urllib.error import URLError, HTTPError
     from bs4 import BeautifulSoup
+    import youtube_dl
+    import re
+
+    que = {}
+    playerlist = {}
+    playlist = list() #재생목록 리스트
+
+    def queue(id): #음악 재생용 큐
+        if que[id] != []:
+            player = que[id].pop(0)
+            playerlist[id] = player
+            del playlist[0]
+            player.start()
 
     @client.event
     async def on_ready():
