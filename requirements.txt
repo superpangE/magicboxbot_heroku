@@ -6,6 +6,7 @@ bs4
 youtube_dl
 lxml
 ffmpeg-python
+ffmpeg
 requests
 urllib3
 Options
