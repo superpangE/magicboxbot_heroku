@@ -206,7 +206,7 @@ def play(bot):
     async def 버전(ctx):
         embed = discord.Embed(color = discord.Color.blue())
         embed.set_author(name = "마법의 소라고동 v3.1입니다.")
-        embed.add_field(name = "최종수정 21-03-21", value = "도와주신분 : 구글", inline=False)
+        embed.add_field(name = "최종수정 21-03-21", value = "음악재생기능 추가", inline=False)
         await ctx.send(embed=embed)
 
     @bot.command()
@@ -221,6 +221,11 @@ def play(bot):
         embed.add_field(name = "코드포스 예정 대회 확인", value = "!코포 or !코드포스", inline=False)
         embed.add_field(name = "소라고동 버전 확인", value = "!버전 or !version", inline=False)
         embed.add_field(name = "소라고동 명령어 확인", value = "!명령어", inline=False)
+        embed.add_field(name = "음악 재생", value = "!play (URL)", inline=False)
+        embed.add_field(name = "음악 일시정지", value = "!pause", inline=False)
+        embed.add_field(name = "음악 다시 재생", value= "!resume", inline=False)
+        embed.add_field(name = "음악 멈춰!", value = "!stop", inline=False)
+        embed.add_field(name = "소라고동 음성채널 나가기", value ="!leave", inline=False)
         embed.set_footer(text="많이 애용해주새오")
         await ctx.send(embed=embed)
 
