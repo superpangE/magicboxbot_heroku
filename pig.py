@@ -5,7 +5,6 @@ def play(client,bot):
     import discord
     import asyncio
     import random
-    from discord.ext import commands
     import time
     import urllib.request
     import youtube_dl
@@ -15,32 +14,6 @@ def play(client,bot):
     from discord import FFmpegPCMAudio
     from bs4 import BeautifulSoup
 
-
-    @client.event
-    async def on_ready():
-        print("login")
-        print(client.user.name)
-        print(client.user.id)
-        print("-----------------")
-        await client.change_presence(status=discord.Status.online, activity=discord.Game('!명령어 설명'))
-
-    @client.event
-    async def on_message(message):
-
-        #단순 응답 핑퐁
-        if message.content.startswith('팡이'):
-            await message.channel.send("멋쟁이")
-
-        #소라고동에게 랜덤한 대답 기대
-        if message.content.startswith('소라고동') or message.content.startswith('마법의'):
-            randomNum = random.randrange(1, 4)
-            if randomNum == 1:
-                await message.channel.send(embed=discord.Embed(title="그래.", color=discord.Color.blue()))
-            elif randomNum == 2:
-                await message.channel.send(embed=discord.Embed(title="몰라.", color=discord.Color.green()))
-            else:
-                await message.channel.send(embed=discord.Embed(title="아니.", color=discord.Color.red()))
-   
     @bot.command()
     async def 코포(ctx):
         try:
@@ -299,3 +272,29 @@ def play(client,bot):
     async def stop(ctx):
         voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
         voice.stop()
+
+    @client.event
+    async def on_ready():
+        print("login")
+        print(client.user.name)
+        print(client.user.id)
+        print("-----------------")
+        await client.change_presence(status=discord.Status.online, activity=discord.Game('!명령어 설명'))
+
+    @client.event
+    async def on_message(message):
+
+        #단순 응답 핑퐁
+        if message.content.startswith('팡이'):
+            await message.channel.send("멋쟁이")
+
+        #소라고동에게 랜덤한 대답 기대
+        if message.content.startswith('소라고동') or message.content.startswith('마법의'):
+            randomNum = random.randrange(1, 4)
+            if randomNum == 1:
+                await message.channel.send(embed=discord.Embed(title="그래.", color=discord.Color.blue()))
+            elif randomNum == 2:
+                await message.channel.send(embed=discord.Embed(title="몰라.", color=discord.Color.green()))
+            else:
+                await message.channel.send(embed=discord.Embed(title="아니.", color=discord.Color.red()))
+   
