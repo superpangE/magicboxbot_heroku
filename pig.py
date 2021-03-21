@@ -225,14 +225,18 @@ def play(bot):
 
     @bot.command()
     async def play(ctx, *, url):
+        print(ctx.message)
+        print(ctx.message.author)
+        print(ctx.message.author.voice)
+        print(ctx.message.author.voice.channel)
         try:
             global vc
             vc = await ctx.message.author.voice.channel.connect()
         except:
-            try:
-                await vc.move_to(ctx.message.author.voice.channel)
-            except:
-                await ctx.send("Nobody in Channel!!")
+            # try:
+            await vc.move_to(ctx.message.author.voice.channel)
+            # except:
+            #     await ctx.send("Nobody in Channel!!")
 
         YDL_OPTIONS = {'format': 'bestaudio','noplaylist':'True'}
         FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
