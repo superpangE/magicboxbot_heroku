@@ -8,3 +8,4 @@ lxml
 ffmpeg-python
 requests
 urllib3
+Options

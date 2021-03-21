@@ -13,7 +13,7 @@ def play(bot):
     from youtube_dl import YoutubeDL
     from urllib.error import URLError, HTTPError
     from discord import FFmpegPCMAudio
-    from bs4 import BeautifulSoup
+    from bs4 import BeautifulSoup 
     from discord.ext import commands
 
     @bot.event
