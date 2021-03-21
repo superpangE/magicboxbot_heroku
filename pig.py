@@ -222,33 +222,37 @@ def play(bot):
     async def commands(ctx):
         await 명령어(ctx)
 
-
     @bot.command()
-    async def play(ctx, *, url):
-        print(ctx.message)
-        print(ctx.message.author)
-        print(ctx.message.author.voice)
-        print(ctx.message.author.voice.channel)
-        try:
-            global vc
-            vc = await ctx.message.author.voice.channel.connect()
-        except:
-            # try:
-            await vc.move_to(ctx.message.author.voice.channel)
-            # except:
-            #     await ctx.send("Nobody in Channel!!")
+    async def play(ctx):
+        global vc
+        vc = await ctx.message.author.voice.channel.connect()
 
-        YDL_OPTIONS = {'format': 'bestaudio','noplaylist':'True'}
-        FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
+    # @bot.command()
+    # async def play(ctx, *, url):
+    #     print(ctx.message)
+    #     print(ctx.message.author)
+    #     print(ctx.message.author.voice)
+    #     print(ctx.message.author.voice.channel)
+    #     try:
+    #         global vc
+    #         vc = await ctx.message.author.voice.channel.connect()
+    #     except:
+    #         try:
+    #             await vc.move_to(ctx.message.author.voice.channel)
+    #         except:
+    #             await ctx.send("Nobody in Channel!!")
 
-        if not vc.is_playing():
-            with YoutubeDL(YDL_OPTIONS) as ydl:
-                info = ydl.extract_info(url, download=False)
-            URL = info['formats'][0]['url']
-            vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
-            await ctx.send(embed = discord.Embed(title= "노래 재생", description = "현재 " + url + "을(를) 재생하고 있습니다.", color = 0x00ff00))
-        else:
-            await ctx.send("Music is already running!")
+    #     YDL_OPTIONS = {'format': 'bestaudio','noplaylist':'True'}
+    #     FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
+
+    #     if not vc.is_playing():
+    #         with YoutubeDL(YDL_OPTIONS) as ydl:
+    #             info = ydl.extract_info(url, download=False)
+    #         URL = info['formats'][0]['url']
+    #         vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
+    #         await ctx.send(embed = discord.Embed(title= "노래 재생", description = "현재 " + url + "을(를) 재생하고 있습니다.", color = 0x00ff00))
+    #     else:
+    #         await ctx.send("Music is already running!")
 
     @bot.command()
     async def leave(ctx):
