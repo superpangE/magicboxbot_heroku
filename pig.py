@@ -3,6 +3,7 @@ import tierimage
 def play(bot):
 
     import discord
+    import ffmpeg
     import asyncio
     import random
     import time
@@ -232,10 +233,6 @@ def play(bot):
 
     @bot.command()
     async def play(ctx, *, url):
-        print(ctx.message)
-        print(ctx.message.author)
-        print(ctx.message.author.voice)
-        print(ctx.message.author.voice.channel)
         try:
             global vc
             vc = await ctx.message.author.voice.channel.connect()
