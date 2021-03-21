@@ -1,6 +1,6 @@
 # discord, asyncio, bs4
 import tierimage
-def play(client,bot):
+def play(bot):
 
     import discord
     import asyncio
@@ -88,7 +88,7 @@ def play(client,bot):
             return m.author == ctx.author and m.channel == ctx.channel
         # 15초안에 입력하지않으면 다시입력하게만듬
         try:
-            msg = await client.wait_for('message', check=pred, timeout=15.0)
+            msg = await bot.wait_for('message', check=pred, timeout=15.0)
         except asyncio.TimeoutError:
             await ctx.channel.send("시간초과ㅡㅡ")
         else:
@@ -246,7 +246,7 @@ def play(client,bot):
 
     @bot.command()
     async def leave(ctx):
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice.is_connected():
             await voice.disconnect()
         else:
@@ -254,7 +254,7 @@ def play(client,bot):
 
     @bot.command()
     async def pause(ctx):
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice.is_playing():
             voice.pause()
         else:
@@ -262,7 +262,7 @@ def play(client,bot):
 
     @bot.command()
     async def resume(ctx):
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice.is_paused():
             voice.resume()
         else:
@@ -270,31 +270,7 @@ def play(client,bot):
 
     @bot.command()
     async def stop(ctx):
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         voice.stop()
 
-    @client.event
-    async def on_ready():
-        print("login")
-        print(client.user.name)
-        print(client.user.id)
-        print("-----------------")
-        await client.change_presence(status=discord.Status.online, activity=discord.Game('!명령어 설명'))
-
-    @client.event
-    async def on_message(message):
-
-        #단순 응답 핑퐁
-        if message.content.startswith('팡이'):
-            await message.channel.send("멋쟁이")
-
-        #소라고동에게 랜덤한 대답 기대
-        if message.content.startswith('소라고동') or message.content.startswith('마법의'):
-            randomNum = random.randrange(1, 4)
-            if randomNum == 1:
-                await message.channel.send(embed=discord.Embed(title="그래.", color=discord.Color.blue()))
-            elif randomNum == 2:
-                await message.channel.send(embed=discord.Embed(title="몰라.", color=discord.Color.green()))
-            else:
-                await message.channel.send(embed=discord.Embed(title="아니.", color=discord.Color.red()))
-   
+ 
