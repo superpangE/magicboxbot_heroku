@@ -1,4 +1,8 @@
 discord.py
 asyncio
+pip
 bs4
 youtube_dl
+ffmpeg-python
+requests
+urlib3
