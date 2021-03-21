@@ -5,4 +5,4 @@ bs4
 youtube_dl
 ffmpeg-python
 requests
-urlib3
+urllib3
