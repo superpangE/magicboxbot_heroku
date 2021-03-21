@@ -1,3 +1,4 @@
+import pig
 import discord
 from discord.utils import get
 import asyncio
