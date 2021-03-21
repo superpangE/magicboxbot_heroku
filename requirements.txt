@@ -1,8 +1,10 @@
+discord.py[voice]
 discord.py
 asyncio
 pip
 bs4
 youtube_dl
+lxml
 ffmpeg-python
 requests
 urllib3

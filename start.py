@@ -233,6 +233,8 @@ async def commands(ctx):
 async def play(ctx):
     global vc
     vc = await ctx.message.author.voice.channel.connect()
+    
+    print(vc)
 
 # @bot.command()
 # async def play(ctx, *, url):
