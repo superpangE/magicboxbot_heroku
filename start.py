@@ -2,5 +2,6 @@ import pig
 import discord
 import os
 client = discord.Client()
-pig.play(client)
+bot =commands.Bot(command_prefix="!")
+pig.play(client, bot)
 client.run(os.environ['token'])

@@ -1,6 +1,6 @@
 # discord, asyncio, bs4
 import tierimage
-def play(client):
+def play(client,bot):
 
     import discord
     import asyncio
@@ -15,7 +15,6 @@ def play(client):
     from discord import FFmpegPCMAudio
     from bs4 import BeautifulSoup
 
-    bot =commands.Bot(command_prefix="!")
 
     @client.event
     async def on_ready():
