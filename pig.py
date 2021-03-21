@@ -16,6 +16,15 @@ def play(bot):
     from bs4 import BeautifulSoup
     from discord.ext import commands
 
+    @bot.event
+    async def on_ready():
+        print("login")
+        print(bot.user.name)
+        print(bot.user.id)
+        print("-----------------")
+        await bot.change_presence(status=discord.Status.online, activity=discord.Game('!명령어 설명'))
+
+
     @bot.command()
     async def 코포(ctx):
         try:
