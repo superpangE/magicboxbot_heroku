@@ -8,11 +8,13 @@ def play(bot):
     import time
     import urllib.request
     import youtube_dl
+    import os
     from discord.utils import get   
     from youtube_dl import YoutubeDL
     from urllib.error import URLError, HTTPError
     from discord import FFmpegPCMAudio
     from bs4 import BeautifulSoup
+    from discord.ext import commands
 
     @bot.command()
     async def 코포(ctx):
@@ -230,7 +232,7 @@ def play(bot):
             try:
                 await vc.move_to(ctx.message.author.voice.channel)
             except:
-                await ctx.send("Nobody in Channel!")
+                await ctx.send("Nobody in Channel!!")
 
         YDL_OPTIONS = {'format': 'bestaudio','noplaylist':'True'}
         FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
