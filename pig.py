@@ -37,7 +37,7 @@ def play(bot):
                 await ctx.channel.send(embed=discord.Embed(title="아니.", color=discord.Color.red()))
         await bot.process_commands(ctx)
 
-        
+
     @bot.command()
     async def 코포(ctx):
         try:
@@ -218,8 +218,8 @@ def play(bot):
     @bot.command()
     async def 버전(ctx):
         embed = discord.Embed(color = discord.Color.blue())
-        embed.set_author(name = "마법의 소라고동 v3.1입니다.")
-        embed.add_field(name = "최종수정 21-03-21", value = "음악재생기능 추가", inline=False)
+        embed.set_author(name = "마법의 소라고동 v3.2입니다.")
+        embed.add_field(name = "최종수정 21-08-24", value = "랜덤응답 오류 수정", inline=False)
         await ctx.send(embed=embed)
 
     @bot.command()
@@ -229,7 +229,7 @@ def play(bot):
     @bot.command()
     async def 명령어(ctx):
         embed = discord.Embed(color = discord.Color.blue())
-        embed.set_author(name = "마법의 소라고동 v3.1 메뉴얼")
+        embed.set_author(name = "마법의 소라고동 v3.2 메뉴얼")
         embed.add_field(name = "백준 티어 확인", value = "!백준", inline=False)
         embed.add_field(name = "코드포스 예정 대회 확인", value = "!코포 or !코드포스", inline=False)
         embed.add_field(name = "소라고동 버전 확인", value = "!버전 or !version", inline=False)
