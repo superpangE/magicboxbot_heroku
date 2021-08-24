@@ -13,6 +13,6 @@ from youtube_dl import YoutubeDL
 from discord import FFmpegPCMAudio
 from discord.ext import commands
 
-bot =commands.Bot(command_prefix="!")
+bot = commands.Bot(command_prefix="!")
 pig.play(bot)
 bot.run(os.environ['token'])
