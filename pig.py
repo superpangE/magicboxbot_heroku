@@ -25,6 +25,19 @@ def play(bot):
         print("-----------------")
         await bot.change_presence(status=discord.Status.online, activity=discord.Game('!명령어 설명'))
 
+    @bot.event
+    async def on_message(ctx):
+        if ctx.content.startswith('소라고동님'):
+            randomNum = random.randrange(1, 4)
+            if randomNum == 1:
+                await ctx.channel.send(embed=discord.Embed(title="그래.", color=discord.Color.blue()))
+            elif randomNum == 2:
+                await ctx.channel.send(embed=discord.Embed(title="몰라.", color=discord.Color.green()))
+            else:
+                await ctx.channel.send(embed=discord.Embed(title="아니.", color=discord.Color.red()))
+        await bot.process_commands(ctx)
+
+        
     @bot.command()
     async def 코포(ctx):
         try:
